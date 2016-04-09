@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">LifeAssistant</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="common_error">加载失败</string>
+    <string name="network_exception">网络异常</string>
 	
+    <!-- 主界面 -->
     <string name="news_center_title">新闻中心</string>
     <string name="music_title">音乐</string>
     <string name="map_title">地图</string>
     <string name="weather_title">天气</string>
     <string name="record_title">记事本</string>
     <string name="message_center_title">消息中心</string>
+    
+    <!-- 音乐界面 -->
+    <string name="music_list">音乐列表</string>
 </resources>

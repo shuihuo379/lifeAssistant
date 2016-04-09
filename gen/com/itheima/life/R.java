@@ -169,7 +169,9 @@ public final class R {
     }
     public static final class id {
         public static final int datepicker=0x7f080000;
+        public static final int music_list=0x7f080003;
         public static final int timepicker=0x7f080001;
+        public static final int tv_back=0x7f080002;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -179,13 +181,19 @@ public final class R {
     }
     public static final class string {
         public static final int app_name=0x7f060000;
-        public static final int hello_world=0x7f060001;
-        public static final int map_title=0x7f060004;
-        public static final int message_center_title=0x7f060007;
-        public static final int music_title=0x7f060003;
-        public static final int news_center_title=0x7f060002;
-        public static final int record_title=0x7f060006;
-        public static final int weather_title=0x7f060005;
+        public static final int common_error=0x7f060001;
+        public static final int map_title=0x7f060005;
+        public static final int message_center_title=0x7f060008;
+        /**  音乐界面 
+         */
+        public static final int music_list=0x7f060009;
+        public static final int music_title=0x7f060004;
+        public static final int network_exception=0x7f060002;
+        /**  主界面 
+         */
+        public static final int news_center_title=0x7f060003;
+        public static final int record_title=0x7f060007;
+        public static final int weather_title=0x7f060006;
     }
     public static final class style {
         /** 
