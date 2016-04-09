@@ -10,15 +10,182 @@ package com.itheima.life;
 public final class R {
     public static final class attr {
     }
+    public static final class color {
+        public static final int alert_dialog_color=0x7f04000d;
+        public static final int atel_theme_color=0x7f040009;
+        public static final int black=0x7f040036;
+        /**  蓝色背景 
+         */
+        public static final int btn_blue_bg_color=0x7f040015;
+        public static final int btn_blue_stroke_color=0x7f040016;
+        /**  灰色按钮 
+         */
+        public static final int btn_gray_bg_color=0x7f040019;
+        public static final int btn_gray_stroke_color=0x7f04001a;
+        /**  绿色按钮 
+         */
+        public static final int btn_green_bg_color=0x7f04001b;
+        public static final int btn_log_out=0x7f04000a;
+        public static final int btn_login_color=0x7f040010;
+        /**  红色按钮 
+         */
+        public static final int btn_red_bg_color=0x7f040017;
+        public static final int btn_red_stroke_color=0x7f040018;
+        /**  小按钮系列,用于shape 
+ 橙色小按钮背景 
+         */
+        public static final int btn_yellow_bg_color=0x7f040013;
+        public static final int btn_yellow_color=0x7f04000e;
+        public static final int btn_yellow_stroke_color=0x7f040014;
+        public static final int check_text_bg=0x7f04000c;
+        public static final int color_login_bottom=0x7f040006;
+        public static final int color_login_top=0x7f040005;
+        public static final int course_detail_top_bg=0x7f04000b;
+        public static final int course_search_bottom_line_color=0x7f040012;
+        public static final int course_search_color=0x7f040011;
+        public static final int darkgray=0x7f040003;
+        public static final int driving_bg=0x7f040039;
+        public static final int email_lime_green=0x7f040034;
+        public static final int email_mediumsea_green=0x7f040035;
+        /**  写信 
+         */
+        public static final int email_write_bg=0x7f040032;
+        public static final int email_write_bg_dark=0x7f040033;
+        /**  header back按钮点击背景色 
+         */
+        public static final int header_back_bg=0x7f040025;
+        public static final int light_black=0x7f040038;
+        public static final int lightgray=0x7f040002;
+        /**  主界面空白背景色 
+         */
+        public static final int main_bg_color=0x7f04001d;
+        /**  bg color 
+         */
+        public static final int main_color=0x7f040004;
+        /**  主题灰 
+         */
+        public static final int main_gray=0x7f040001;
+        /**  主题绿 
+         */
+        public static final int main_green=0x7f040000;
+        public static final int menu_account_bg=0x7f04002e;
+        /**  menu 背景色 
+         */
+        public static final int menu_bg_color=0x7f040026;
+        /**  menu 点击背景色 
+         */
+        public static final int menu_course_bg=0x7f040027;
+        /**  menu 分割线 颜色 
+         */
+        public static final int menu_divider_color=0x7f040031;
+        public static final int menu_download_bg=0x7f04002c;
+        public static final int menu_exam_bg=0x7f040028;
+        public static final int menu_favorite_bg=0x7f04002a;
+        public static final int menu_knowledge_bg=0x7f040029;
+        public static final int menu_question_bg=0x7f04002d;
+        public static final int menu_set_bg=0x7f04002f;
+        public static final int menu_shutdown_bg=0x7f040030;
+        public static final int menu_survey_bg=0x7f04002b;
+        /**  知识库 课程 下面的二级POP背景色 及边框色 
+         */
+        public static final int pop_sec_bg=0x7f04001e;
+        public static final int pop_sec_bg_stroke=0x7f04001f;
+        public static final int pop_sec_font=0x7f040020;
+        public static final int pup_bg_color=0x7f040007;
+        /**  问题中心点击开始回答 背景色 
+         */
+        public static final int que_answer_bg=0x7f040021;
+        public static final int que_answer_btn_bg=0x7f040022;
+        public static final int que_tex_solved=0x7f040024;
+        public static final int que_tex_un_solved=0x7f040023;
+        public static final int tex_answer_bg_color=0x7f04000f;
+        public static final int transparent=0x7f040037;
+        public static final int user_divider=0x7f040008;
+        /**  个人信息 上面背景色 
+         */
+        public static final int user_header_color=0x7f04001c;
+    }
+    public static final class dimen {
+        public static final int activity_horizontal_margin=0x7f050028;
+        public static final int activity_vertical_margin=0x7f050029;
+        public static final int dp10=0x7f050008;
+        public static final int dp100=0x7f050019;
+        public static final int dp110=0x7f05001a;
+        public static final int dp12=0x7f050009;
+        public static final int dp120=0x7f05001b;
+        public static final int dp130=0x7f05001c;
+        public static final int dp15=0x7f05000a;
+        public static final int dp150=0x7f05001d;
+        public static final int dp160=0x7f05001e;
+        public static final int dp165=0x7f05001f;
+        public static final int dp170=0x7f050020;
+        public static final int dp190=0x7f050021;
+        public static final int dp20=0x7f05000b;
+        public static final int dp200=0x7f050022;
+        public static final int dp230=0x7f050023;
+        public static final int dp25=0x7f05000c;
+        public static final int dp260=0x7f050024;
+        public static final int dp290=0x7f050025;
+        public static final int dp30=0x7f05000d;
+        public static final int dp300=0x7f050026;
+        public static final int dp32=0x7f05000e;
+        public static final int dp35=0x7f05000f;
+        public static final int dp350=0x7f050027;
+        public static final int dp40=0x7f050010;
+        public static final int dp45=0x7f050011;
+        public static final int dp5=0x7f050007;
+        public static final int dp50=0x7f050012;
+        public static final int dp60=0x7f050013;
+        public static final int dp65=0x7f050014;
+        public static final int dp70=0x7f050015;
+        public static final int dp75=0x7f050016;
+        public static final int dp80=0x7f050017;
+        public static final int dp90=0x7f050018;
+        /**  Default screen margins, per the Android Design guidelines. 
+ Default screen margins, per the Android Design guidelines. 
+ Main Sceen 
+ Default screen margins, per the Android Design guidelines. 
+
+         Customize dimensions originally defined in res/values/dimens.xml (such as
+         screen margins) for sw600dp devices (e.g. 7" tablets) here.
+    
+ Default screen margins, per the Android Design guidelines. 
+ Main Sceen 
+         */
+        public static final int sp10=0x7f050000;
+        public static final int sp12=0x7f050001;
+        public static final int sp13=0x7f050002;
+        public static final int sp15=0x7f050003;
+        public static final int sp18=0x7f050004;
+        public static final int sp20=0x7f050005;
+        public static final int sp25=0x7f050006;
+    }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
+        /**  问题中我的问题 
+         */
+        public static final int que_check_bg=0x7f020001;
+        public static final int que_unCheck_bg=0x7f020002;
+    }
+    public static final class id {
+        public static final int datepicker=0x7f080000;
+        public static final int timepicker=0x7f080001;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
+        public static final int common_datetime=0x7f030001;
+        public static final int music_activity=0x7f030002;
+        public static final int welcome_activity=0x7f030003;
     }
     public static final class string {
-        public static final int app_name=0x7f040000;
-        public static final int hello_world=0x7f040001;
+        public static final int app_name=0x7f060000;
+        public static final int hello_world=0x7f060001;
+        public static final int map_title=0x7f060004;
+        public static final int message_center_title=0x7f060007;
+        public static final int music_title=0x7f060003;
+        public static final int news_center_title=0x7f060002;
+        public static final int record_title=0x7f060006;
+        public static final int weather_title=0x7f060005;
     }
     public static final class style {
         /** 
@@ -42,10 +209,10 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f050000;
+        public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f050001;
+        public static final int AppTheme=0x7f070001;
     }
 }
