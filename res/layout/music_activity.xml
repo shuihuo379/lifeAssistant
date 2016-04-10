@@ -7,7 +7,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp50"
+        android:layout_height="@dimen/dp45"
         android:background="@color/main_green" >
 
         <TextView
@@ -33,16 +33,55 @@
             android:textSize="@dimen/sp20" />
     </RelativeLayout>
 
-    <ListView
-        android:id="@+id/music_list"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:cacheColorHint="@android:color/transparent"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="1dp"
-        android:fadeScrollbars="false"
-        android:fadingEdge="none"
-        android:listSelector="@android:color/transparent"
-        android:scrollbars="none">
-    </ListView>
+        android:layout_height="match_parent" >
+
+        <ListView
+            android:id="@+id/music_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="@android:color/transparent"
+            android:divider="@color/lightgray"
+            android:dividerHeight="1dp"
+            android:fadeScrollbars="false"
+            android:fadingEdge="none"
+            android:listSelector="@android:color/transparent"
+            android:scrollbars="none" >
+        </ListView>
+
+        <RelativeLayout
+            android:id="@+id/rl_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp45"
+            android:layout_alignParentBottom="true"
+            android:background="@color/light_black"
+            android:padding="@dimen/dp10" >
+
+            <ImageView
+                android:id="@+id/music_pic"
+                android:layout_width="@dimen/dp35"
+                android:layout_height="@dimen/dp35"
+                android:layout_centerVertical="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_launcher" />
+
+            <TextView
+                android:id="@+id/music_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp15"
+                android:layout_toRightOf="@id/music_pic"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp15"/>
+        </RelativeLayout>
+
+        <SeekBar
+            android:id="@+id/music_seek"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/dp35" />
+    </RelativeLayout>
+
 </LinearLayout>
