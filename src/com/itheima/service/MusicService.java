@@ -3,8 +3,11 @@ package com.itheima.service;
 import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnBufferingUpdateListener;
 import android.media.MediaPlayer.OnPreparedListener;
+import android.os.Handler;
 import android.os.IBinder;
+import android.util.Log;
 
 import com.itheima.constant.LifeAssistantConstant;
 
@@ -15,6 +18,19 @@ import com.itheima.constant.LifeAssistantConstant;
  */
 public class MusicService extends Service{
 	private MediaPlayer mediaPlayer =  new MediaPlayer();       //媒体播放器对象  
+	private Handler handler = new Handler();
+	private Runnable runnable = new Runnable() {
+		@Override
+		public void run() {
+			if(!LifeAssistantConstant.ProgressMsgReceiver_Text.isChanging){
+				Intent intent = new Intent(LifeAssistantConstant.ProgressMsgReceiver_Text.ACTION_MSG);
+				intent.putExtra(LifeAssistantConstant.ProgressMsgReceiver_Text.PARAM_ONE_KEY_MSG,mediaPlayer.getCurrentPosition());  
+				intent.putExtra(LifeAssistantConstant.ProgressMsgReceiver_Text.PARAM_TWO_KEY_MSG,mediaPlayer.getDuration());  
+	            sendBroadcast(intent);  
+	            handler.postDelayed(runnable,100);  
+			}
+		}
+	};
 	
 	@Override
 	public IBinder onBind(Intent intent) {
@@ -30,11 +46,14 @@ public class MusicService extends Service{
         
         if(msg == LifeAssistantConstant.PlayerMsg.PLAY_MSG) {  
         	String path = intent.getStringExtra("MUSIC_URL");  //音乐文件路径 
-            play(path,0);  
+            play(path,0); 
+            handler.post(runnable); //启动
         } else if(msg == LifeAssistantConstant.PlayerMsg.PAUSE_MSG) {  
-            pause();  
+            pause();
+            handler.removeCallbacks(runnable); //取消线程
         } else if(msg == LifeAssistantConstant.PlayerMsg.STOP_MSG) {  
-            stop();  
+            stop();
+            handler.removeCallbacks(runnable); //取消线程
         } else if(msg == LifeAssistantConstant.PlayerMsg.SEEK_MSG){
         	int maxBarProgress = intent.getIntExtra("maxBarProgress",0);
         	int curProgress = intent.getIntExtra("curProgress",0);
@@ -54,6 +73,7 @@ public class MusicService extends Service{
 	            mediaPlayer.setDataSource(path);  
 	            mediaPlayer.prepare();  //进行缓冲  
 	            mediaPlayer.setOnPreparedListener(new PreparedListener(position));//注册一个监听器 
+	            mediaPlayer.setOnBufferingUpdateListener(new MyBufferUpdateListener());
 	        }
         }catch (Exception e) {  
             e.printStackTrace();  
@@ -84,7 +104,7 @@ public class MusicService extends Service{
     }  
     
     /**
-     * 定位音乐
+     * 定位音乐(设置音乐进度)
      * @param curProgress 当前播放进度
      * @param maxBarProgress 进度条最大进度
      */
@@ -104,9 +124,7 @@ public class MusicService extends Service{
     }  
     
     /** 
-     *  
      * 实现一个OnPrepareLister接口,当音乐准备好的时候开始播放 
-     * 
      */  
     private final class PreparedListener implements OnPreparedListener {  
         private int positon;  
@@ -122,5 +140,12 @@ public class MusicService extends Service{
                 mediaPlayer.seekTo(positon);  
             }  
         }  
-    }  
+    }
+    
+    private final class MyBufferUpdateListener implements OnBufferingUpdateListener{
+		@Override
+		public void onBufferingUpdate(MediaPlayer mp, int percent) {
+			Log.i("test","bufferingProgress===>" + percent);  //可以用来设置第二进度 
+		}
+    }
 }

@@ -3,9 +3,12 @@ package com.itheima.life;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -36,6 +39,25 @@ public class MusicActivity extends BaseActivity{
 	private MusicAdapter mAdapter;
 	private SeekBar music_seek;
 	private TextView music_title;
+	private ProgressMsgReceiver msgReceiver;
+	
+	/**
+	 * 音乐进度广播接收器,接收传过来的mediaPlayer.getCurrentPosition()的值
+	 * SeekBar拖动的事件：SeekBar的Progress是0~SeekBar.getMax()之内的数，
+	 * 而MediaPlayer.seekTo()的参数是0~MediaPlayer.getDuration()之内数，
+	 * 所以MediaPlayer.seekTo()的参数是(progress/seekBar.getMax())*player.mediaPlayer.getDuration()
+	 * @author zhangming
+	 */
+    public class ProgressMsgReceiver extends BroadcastReceiver{  
+        @Override  
+        public void onReceive(Context context, Intent intent) {  
+        	int progress = intent.getIntExtra(LifeAssistantConstant.ProgressMsgReceiver_Text.PARAM_ONE_KEY_MSG, 0);  
+        	int duration = intent.getIntExtra(LifeAssistantConstant.ProgressMsgReceiver_Text.PARAM_TWO_KEY_MSG, 0); 
+        	long pos = music_seek.getMax() * progress / duration;
+        	Log.i("test","pos===>"+pos);
+        	music_seek.setProgress((int)pos);
+        }  
+    }  
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +65,7 @@ public class MusicActivity extends BaseActivity{
 		setContentView(R.layout.music_activity);
 		initView();
 		setListener();
+		registerProgressMsgReceiver();
 	}
 	
 	private void initView() {
@@ -79,6 +102,8 @@ public class MusicActivity extends BaseActivity{
 			
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {
+				LifeAssistantConstant.ProgressMsgReceiver_Text.isChanging = false;
+				
 				Intent intent = new Intent();  
 				intent.putExtra("MSG", LifeAssistantConstant.PlayerMsg.SEEK_MSG);  
 				intent.putExtra("maxBarProgress",seekBar.getMax());  
@@ -89,7 +114,7 @@ public class MusicActivity extends BaseActivity{
 			
 			@Override
 			public void onStartTrackingTouch(SeekBar seekBar) {
-				
+				LifeAssistantConstant.ProgressMsgReceiver_Text.isChanging = true;
 			}
 			
 			@Override
@@ -98,6 +123,14 @@ public class MusicActivity extends BaseActivity{
 				this.curProgress = progress;
 			}
 		});
+	}
+	
+	private void registerProgressMsgReceiver(){
+		//动态注册广播接收器  
+        msgReceiver = new ProgressMsgReceiver();  
+        IntentFilter intentFilter = new IntentFilter();  
+        intentFilter.addAction(LifeAssistantConstant.ProgressMsgReceiver_Text.ACTION_MSG);  
+        registerReceiver(msgReceiver, intentFilter);  
 	}
 	
 	@Override
@@ -127,4 +160,9 @@ public class MusicActivity extends BaseActivity{
 		mAdapter.notifyDataSetChanged();
 	}
 	
+	@Override
+	protected void onDestroy() {
+		unregisterReceiver(msgReceiver); //推出时注销广播
+		super.onDestroy();
+	}
 }
