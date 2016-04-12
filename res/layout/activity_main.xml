@@ -17,6 +17,7 @@
         android:orientation="horizontal" >
 
         <LinearLayout
+            android:id="@+id/ll_news"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -42,6 +43,7 @@
             android:orientation="vertical" >
 
             <LinearLayout
+                android:id="@+id/ll_music"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -61,6 +63,7 @@
                 android:background="@color/light_black" />
 
             <LinearLayout
+                android:id="@+id/ll_map"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -94,6 +97,7 @@
             android:orientation="vertical" >
 
             <LinearLayout
+                android:id="@+id/ll_weather"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -113,6 +117,7 @@
                 android:background="@color/light_black" />
 
             <LinearLayout
+                android:id="@+id/ll_notepad"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -133,6 +138,7 @@
             android:background="@color/light_black" />
 
         <LinearLayout
+            android:id="@+id/ll_messages"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

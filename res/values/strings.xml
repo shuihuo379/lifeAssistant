@@ -3,6 +3,7 @@
     <string name="app_name">LifeAssistant</string>
     <string name="common_error">加载失败</string>
     <string name="network_exception">网络异常</string>
+    <string name="no_result_tips">没有搜索到结果</string>
 	
     <!-- 主界面 -->
     <string name="news_center_title">新闻中心</string>
@@ -14,4 +15,9 @@
     
     <!-- 音乐界面 -->
     <string name="music_list">音乐列表</string>
+    
+    <!-- 地图模块 -->
+    <string name="map_location_title">地图定位</string>
+    <string name="hint_text_address_name">请输入地名</string>
+    <string name="search_text">搜索</string>
 </resources>
