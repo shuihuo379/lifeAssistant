@@ -45,16 +45,20 @@ public class MusicService extends Service{
         int msg = intent.getIntExtra("MSG", 0);  
         
         if(msg == LifeAssistantConstant.PlayerMsg.PLAY_MSG) {  
+        	LifeAssistantConstant.ProgressMsgReceiver_Text.isStarting = true;
         	String path = intent.getStringExtra("MUSIC_URL");  //音乐文件路径 
             play(path,0); 
             handler.post(runnable); //启动
-        } else if(msg == LifeAssistantConstant.PlayerMsg.PAUSE_MSG) {  
+        } else if(msg == LifeAssistantConstant.PlayerMsg.PAUSE_MSG) { 
+        	LifeAssistantConstant.ProgressMsgReceiver_Text.isStarting = false;
             pause();
-            handler.removeCallbacks(runnable); //取消线程
+        } else if(msg == LifeAssistantConstant.PlayerMsg.RESTART_MSG){
+        	LifeAssistantConstant.ProgressMsgReceiver_Text.isStarting = true;
+        	restart();
         } else if(msg == LifeAssistantConstant.PlayerMsg.STOP_MSG) {  
             stop();
-            handler.removeCallbacks(runnable); //取消线程
         } else if(msg == LifeAssistantConstant.PlayerMsg.SEEK_MSG){
+        	LifeAssistantConstant.ProgressMsgReceiver_Text.isStarting = true;
         	int maxBarProgress = intent.getIntExtra("maxBarProgress",0);
         	int curProgress = intent.getIntExtra("curProgress",0);
         	seek(maxBarProgress,curProgress);
@@ -88,6 +92,16 @@ public class MusicService extends Service{
             mediaPlayer.pause();  
         }  
     }  
+    
+    /**
+     * 暂停后重新播放音乐
+     */
+    private void restart(){
+    	if (mediaPlayer != null && !mediaPlayer.isPlaying()){
+    		Log.w("test","restart...");
+    		mediaPlayer.start();
+    	}
+    }
       
     /** 
      * 停止音乐 
@@ -120,7 +134,9 @@ public class MusicService extends Service{
         if(mediaPlayer != null){  
             mediaPlayer.stop();  
             mediaPlayer.release();  
-        }  
+        }
+        handler.removeCallbacks(runnable); //取消线程
+        runnable = null;
     }  
     
     /** 
@@ -135,7 +151,9 @@ public class MusicService extends Service{
           
         @Override  
         public void onPrepared(MediaPlayer mp) {  
-            mediaPlayer.start();    //开始播放  
+        	if(LifeAssistantConstant.ProgressMsgReceiver_Text.isStarting){
+        		 mediaPlayer.start();    //开始播放  
+        	}
             if(positon > 0) {  //如果音乐不是从头播放  
                 mediaPlayer.seekTo(positon);  
             }  

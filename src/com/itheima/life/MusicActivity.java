@@ -10,8 +10,10 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
@@ -40,6 +42,8 @@ public class MusicActivity extends BaseActivity{
 	private SeekBar music_seek;
 	private TextView music_title;
 	private ProgressMsgReceiver msgReceiver;
+	private ImageView iv_play;
+	private int status;
 	
 	/**
 	 * 音乐进度广播接收器,接收传过来的mediaPlayer.getCurrentPosition()的值
@@ -70,9 +74,11 @@ public class MusicActivity extends BaseActivity{
 	
 	private void initView() {
 		context = this;
+		status = LifeAssistantConstant.Status_Text.INIT_PERPARE_STATUS;
 		music_list = (ListView)findViewById(R.id.music_list);
 		music_seek = (SeekBar)findViewById(R.id.music_seek);
 		music_title = (TextView)findViewById(R.id.music_title);
+		iv_play = (ImageView)findViewById(R.id.iv_play);
 		
 		mList = new ArrayList<Music_Data>();
 		mAdapter = new MusicAdapter(this,mList);
@@ -93,6 +99,8 @@ public class MusicActivity extends BaseActivity{
 			         startService(intent);
 			         music_seek.setProgress(0); //重置seekbar进度条
 			         music_title.setText(data.getMusicTitle());
+			         status = LifeAssistantConstant.Status_Text.PLAY_STATUS; //设置状态为播放状态
+			         iv_play.setImageResource(R.drawable.play);
 				}
 			}
 		});
@@ -121,6 +129,30 @@ public class MusicActivity extends BaseActivity{
 			public void onProgressChanged(SeekBar seekBar, int progress,
 					boolean fromUser) {
 				this.curProgress = progress;
+			}
+		});
+		
+		iv_play.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(context,MusicService.class);  
+				if(status == LifeAssistantConstant.Status_Text.PLAY_STATUS){
+					status = LifeAssistantConstant.Status_Text.PAUSE_STATUS;
+					iv_play.setImageResource(R.drawable.pause);
+					intent.putExtra("MSG", LifeAssistantConstant.PlayerMsg.PAUSE_MSG);  
+					startService(intent);
+				}else if(status == LifeAssistantConstant.Status_Text.PAUSE_STATUS){
+					status = LifeAssistantConstant.Status_Text.PLAY_STATUS;
+					iv_play.setImageResource(R.drawable.play);
+					intent.putExtra("MSG", LifeAssistantConstant.PlayerMsg.RESTART_MSG);  
+					startService(intent);
+				}else if(status == LifeAssistantConstant.Status_Text.INIT_PERPARE_STATUS){
+					intent.putExtra("MSG", LifeAssistantConstant.PlayerMsg.PLAY_MSG);  //发送开始播放的指示消息
+					intent.putExtra("MUSIC_URL",mList.get(0).getMusicUrl()); //初始状态下默认是第一首音乐       
+					startService(intent);
+					status = LifeAssistantConstant.Status_Text.PLAY_STATUS;
+					iv_play.setImageResource(R.drawable.play);
+				}
 			}
 		});
 	}

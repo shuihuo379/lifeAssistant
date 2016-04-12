@@ -53,7 +53,7 @@
         <RelativeLayout
             android:id="@+id/rl_bottom"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp45"
+            android:layout_height="@dimen/dp50"
             android:layout_alignParentBottom="true"
             android:background="@color/light_black"
             android:padding="@dimen/dp10" >
@@ -74,6 +74,38 @@
                 android:layout_toRightOf="@id/music_pic"
                 android:textColor="@color/black"
                 android:textSize="@dimen/sp15"/>
+            <TextView
+                android:id="@+id/music_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp15"
+                android:layout_toRightOf="@id/music_pic"
+                android:layout_below="@id/music_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp15"/>
+			
+            <ImageView 
+                android:id="@+id/arrow_left"
+                android:layout_width="@dimen/dp25"
+                android:layout_height="@dimen/dp25"
+                android:src="@drawable/arrow_left"
+                android:layout_centerInParent="true"/>
+             <ImageView 
+                android:id="@+id/iv_play"
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"
+                android:src="@drawable/pause"
+                android:layout_toRightOf="@id/arrow_left"
+                android:layout_marginLeft="@dimen/dp20"
+                android:layout_centerVertical="true"/>
+             <ImageView 
+                android:id="@+id/arrow_right"
+                android:layout_width="@dimen/dp25"
+                android:layout_height="@dimen/dp25"
+                android:src="@drawable/arrow_right"
+                android:layout_toRightOf="@id/iv_play"
+                android:layout_marginLeft="@dimen/dp20"
+                android:layout_centerVertical="true"/>
         </RelativeLayout>
 
         <SeekBar
@@ -81,7 +113,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="@dimen/dp35" />
+            android:layout_marginBottom="@dimen/dp45" />
     </RelativeLayout>
 
 </LinearLayout>
