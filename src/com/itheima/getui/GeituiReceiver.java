@@ -1,5 +1,7 @@
 package com.itheima.getui;
 
+import java.util.ArrayList;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -9,10 +11,11 @@ import android.util.Log;
 
 import com.igexin.sdk.PushConsts;
 import com.igexin.sdk.PushManager;
-import com.itheima.life.MsgNotificationActivity;
+import com.itheima.constant.LifeAssistantConstant;
 
 public class GeituiReceiver extends BroadcastReceiver {
     public static StringBuilder payloadData = new StringBuilder();
+    public static ArrayList<String> msgList = new ArrayList<String>(); //消息列表list数据,list集合中每一个元素是一个json字符串
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -37,10 +40,11 @@ public class GeituiReceiver extends BroadcastReceiver {
                     Log.i("test", "receiver payload : " + data);
                     payloadData.append(data);
                     payloadData.append("\n");
-                    //改动之处
-                    if(MsgNotificationActivity.tv_content !=null){
-                    	MsgNotificationActivity.tv_content.setText(data);
-                    }
+                    msgList.add(data);
+                    //发送广播,传递数据到Activity中
+                    Intent mIntent=new Intent(LifeAssistantConstant.MsgNotification_Text.ACTION_INTENT_RECEIVER);
+                    mIntent.putStringArrayListExtra("msgList",msgList);
+                    context.sendBroadcast(mIntent);
                 }
                 break;
             case PushConsts.GET_CLIENTID:
@@ -51,8 +55,6 @@ public class GeituiReceiver extends BroadcastReceiver {
                 //增加(改动的代码)
                 SharedPreferences sp = context.getSharedPreferences("myPush",context.MODE_PRIVATE);
                 sp.edit().putString("clientId",cid).commit();
-                break;
-            default:
                 break;
         }
     }

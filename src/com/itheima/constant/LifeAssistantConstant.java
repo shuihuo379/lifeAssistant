@@ -2,6 +2,7 @@ package com.itheima.constant;
 
 
 public class LifeAssistantConstant {
+	/**音乐模块常量字段**/
 	public static class PlayerMsg{
 		public static final int PLAY_MSG = 0;
 		public static final int PAUSE_MSG = 1;
@@ -21,5 +22,10 @@ public class LifeAssistantConstant {
 		public static final int PLAY_STATUS = 0;
 		public static final int PAUSE_STATUS = 1;
 		public static final int INIT_PERPARE_STATUS = 2; //初始状态,准备播放
+	}
+	
+	/**消息通知模块常量字段**/
+	public static class MsgNotification_Text{
+		public static final String ACTION_INTENT_RECEIVER = "com.itheima.msg.notification";
 	}
 }

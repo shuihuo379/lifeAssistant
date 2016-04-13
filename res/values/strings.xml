@@ -20,4 +20,5 @@
     <string name="map_location_title">地图定位</string>
     <string name="hint_text_address_name">请输入地名</string>
     <string name="search_text">搜索</string>
+    <string name="msg_list">消息列表</string>
 </resources>

@@ -175,46 +175,48 @@ public final class R {
         public static final int shop=0x7f020007;
     }
     public static final class id {
-        public static final int arrow_left=0x7f080012;
-        public static final int arrow_right=0x7f080014;
+        public static final int arrow_left=0x7f080013;
+        public static final int arrow_right=0x7f080015;
         public static final int bmapView=0x7f080009;
         public static final int datepicker=0x7f08000a;
         public static final int et_content=0x7f080007;
-        public static final int iv_pic=0x7f080016;
-        public static final int iv_play=0x7f080013;
-        public static final int ll_barView=0x7f08001c;
+        public static final int iv_pic=0x7f080017;
+        public static final int iv_play=0x7f080014;
+        public static final int ll_barView=0x7f08001d;
         public static final int ll_map=0x7f080002;
         public static final int ll_messages=0x7f080005;
         public static final int ll_music=0x7f080001;
         public static final int ll_news=0x7f080000;
         public static final int ll_notepad=0x7f080004;
-        public static final int ll_polview=0x7f08001b;
+        public static final int ll_polview=0x7f08001c;
         public static final int ll_weather=0x7f080003;
-        public static final int music_list=0x7f08000d;
-        public static final int music_pic=0x7f08000f;
-        public static final int music_seek=0x7f080015;
-        public static final int music_time=0x7f080011;
-        public static final int music_title=0x7f080010;
-        public static final int rl_bottom=0x7f08000e;
+        public static final int msg_list=0x7f08000c;
+        public static final int music_list=0x7f08000e;
+        public static final int music_pic=0x7f080010;
+        public static final int music_seek=0x7f080016;
+        public static final int music_time=0x7f080012;
+        public static final int music_title=0x7f080011;
+        public static final int rl_bottom=0x7f08000f;
         public static final int timepicker=0x7f08000b;
-        public static final int title=0x7f08001a;
-        public static final int tv_author=0x7f080018;
+        public static final int title=0x7f08001b;
+        public static final int tv_author=0x7f080019;
         public static final int tv_back=0x7f080006;
-        public static final int tv_content=0x7f08000c;
+        public static final int tv_message=0x7f08000d;
         public static final int tv_search=0x7f080008;
-        public static final int tv_title=0x7f080017;
-        public static final int user_info=0x7f080019;
+        public static final int tv_title=0x7f080018;
+        public static final int user_info=0x7f08001a;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int baidumap_activity=0x7f030001;
         public static final int common_datetime=0x7f030002;
         public static final int msg_notification_activity=0x7f030003;
-        public static final int music_activity=0x7f030004;
-        public static final int music_item=0x7f030005;
-        public static final int overlay_pop=0x7f030006;
-        public static final int weather_activity=0x7f030007;
-        public static final int welcome_activity=0x7f030008;
+        public static final int msg_notification_item=0x7f030004;
+        public static final int music_activity=0x7f030005;
+        public static final int music_item=0x7f030006;
+        public static final int overlay_pop=0x7f030007;
+        public static final int weather_activity=0x7f030008;
+        public static final int welcome_activity=0x7f030009;
     }
     public static final class string {
         public static final int app_name=0x7f060000;
@@ -225,6 +227,7 @@ public final class R {
         public static final int map_location_title=0x7f06000b;
         public static final int map_title=0x7f060006;
         public static final int message_center_title=0x7f060009;
+        public static final int msg_list=0x7f06000e;
         /**  音乐界面 
          */
         public static final int music_list=0x7f06000a;

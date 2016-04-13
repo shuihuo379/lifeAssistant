@@ -68,6 +68,7 @@ public class MusicActivity extends BaseActivity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.music_activity);
 		initView();
+		initNetManager();
 		setListener();
 		registerProgressMsgReceiver();
 	}
@@ -194,7 +195,8 @@ public class MusicActivity extends BaseActivity{
 	
 	@Override
 	protected void onDestroy() {
-		unregisterReceiver(msgReceiver); //推出时注销广播
+		unregisterReceiver(msgReceiver); //退出时注销广播
+		destroyNetManager();
 		super.onDestroy();
 	}
 }
