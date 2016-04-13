@@ -51,6 +51,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 			startActivity(WeatherActivity.class);
 			break;
 		case R.id.ll_notepad:
+			startActivity(TouchOperatorActivity.class);
 			break;
 		case R.id.ll_messages:
 			startActivity(MsgNotificationActivity.class);
