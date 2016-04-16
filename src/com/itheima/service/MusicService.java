@@ -62,6 +62,7 @@ public class MusicService extends Service{
         	int maxBarProgress = intent.getIntExtra("maxBarProgress",0);
         	int curProgress = intent.getIntExtra("curProgress",0);
         	seek(maxBarProgress,curProgress);
+        	handler.post(runnable); //启动
         }
         return super.onStartCommand(intent, flags, startId);  
     } 

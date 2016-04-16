@@ -71,6 +71,11 @@
             android:configChanges="locale|layoutDirection"
             android:screenOrientation="portrait">
         </activity>
+         <activity 
+            android:name=".MusicsActivity"
+            android:configChanges="locale|layoutDirection"
+            android:screenOrientation="portrait">
+        </activity>
         <activity 
             android:name=".WeatherActivity"
             android:configChanges="locale|layoutDirection"

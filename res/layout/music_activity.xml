@@ -70,7 +70,7 @@
                 android:id="@+id/music_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dp15"
+                android:layout_marginLeft="@dimen/dp10"
                 android:layout_toRightOf="@id/music_pic"
                 android:textColor="@color/black"
                 android:textSize="@dimen/sp15"/>
@@ -78,7 +78,7 @@
                 android:id="@+id/music_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dp15"
+                android:layout_marginLeft="@dimen/dp10"
                 android:layout_toRightOf="@id/music_pic"
                 android:layout_below="@id/music_title"
                 android:textColor="@color/black"

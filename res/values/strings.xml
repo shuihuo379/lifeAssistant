@@ -15,6 +15,8 @@
     
     <!-- 音乐界面 -->
     <string name="music_list">音乐列表</string>
+    <string name="local_music_text">本地音乐</string>
+    <string name="net_music_text">网络音乐</string>
     
     <!-- 地图模块 -->
     <string name="map_location_title">地图定位</string>

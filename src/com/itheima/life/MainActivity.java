@@ -18,6 +18,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		initView();
+		initNetManager();
 	}
 	
 	private void initView(){
@@ -42,7 +43,8 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 		case R.id.ll_news:
 			break;
 		case R.id.ll_music:
-			startActivity(MusicActivity.class);
+//			startActivity(MusicActivity.class);
+			startActivity(MusicsActivity.class);
 			break;
 		case R.id.ll_map:
 			startActivity(BaiduMapActivity.class);
@@ -57,5 +59,11 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 			startActivity(MsgNotificationActivity.class);
 			break;
 		}
+	}
+	
+	@Override
+	protected void onDestroy() {
+		destroyNetManager();
+		super.onDestroy();
 	}
 }

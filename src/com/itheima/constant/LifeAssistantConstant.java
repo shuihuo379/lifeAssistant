@@ -1,6 +1,5 @@
 package com.itheima.constant;
 
-
 public class LifeAssistantConstant {
 	/**音乐模块常量字段**/
 	public static class PlayerMsg{
