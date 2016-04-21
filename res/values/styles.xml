@@ -16,5 +16,31 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
+    
+    <!-- 新闻中心中使用到的ViewPagerIndicator的主题样式 --> 
+    <style name="MyTheme" parent="AppBaseTheme">
+        <item name="vpiTabPageIndicatorStyle">@style/MyWidget.TabPageIndicator</item>
+        <!-- 设置窗体默认背景图片 -->
+        <item name="android:windowBackground">@color/main_green</item>
+        <item name="android:windowNoTitle">true</item>  
+        <item name="android:animationDuration">5000</item>
+        <item name="android:windowContentOverlay">@null</item>  
+    </style>
+    
+    <style name="MyWidget.TabPageIndicator" parent="Widget">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/vpi__tab_indicator</item>
+        <item name="android:paddingLeft">@dimen/dp20</item>
+        <item name="android:paddingRight">@dimen/dp20</item>
+        <item name="android:paddingTop">@dimen/dp10</item>
+        <item name="android:paddingBottom">@dimen/dp10</item>
+        <item name="android:textAppearance">@style/MyTextAppearance.TabPageIndicator</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:maxLines">1</item>
+    </style>
 
+    <style name="MyTextAppearance.TabPageIndicator" parent="Widget">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
 </resources>

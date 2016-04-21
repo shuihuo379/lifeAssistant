@@ -46,7 +46,7 @@ public class NetMusicFragment extends BaseStandardFragment{
 	private SeekBar music_seek;
 	private TextView music_title,music_time;
 	private ProgressMsgReceiver msgReceiver;
-	private ImageView iv_play,iv_arrow_left,iv_arrow_right;;
+	private ImageView iv_play,iv_arrow_left,iv_arrow_right;
 	private View rootView;
 	private static int status = LifeAssistantConstant.Status_Text.INIT_PERPARE_STATUS;
 	private static int playCurPosition = 0;  //当前处在播放的条目位置,默认初始值是0
@@ -69,6 +69,7 @@ public class NetMusicFragment extends BaseStandardFragment{
         	long pos = music_seek.getMax() * progress / duration;
         	Log.i("test","pos===>"+pos);
         	music_seek.setProgress((int)pos);
+        	music_seek.setSecondaryProgress(MusicService.curBufferingProgress);
         	music_time.setText(curTime+"/"+allTime);
         }  
     }  

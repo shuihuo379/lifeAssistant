@@ -14,7 +14,8 @@
     <string name="message_center_title">消息中心</string>
     
     <!-- 音乐界面 -->
-    <string name="music_list">音乐列表</string>
+    <string name="local_music_list">本地音乐列表</string>
+    <string name="net_music_list">网络音乐列表</string>
     <string name="local_music_text">本地音乐</string>
     <string name="net_music_text">网络音乐</string>
     
@@ -23,4 +24,6 @@
     <string name="hint_text_address_name">请输入地名</string>
     <string name="search_text">搜索</string>
     <string name="msg_list">消息列表</string>
+    
+    <!-- 新闻中心 -->
 </resources>

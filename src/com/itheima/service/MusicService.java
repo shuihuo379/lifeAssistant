@@ -17,7 +17,7 @@ import com.itheima.constant.LifeAssistantConstant;
  * @date 2016/04/09
  */
 public class MusicService extends Service{
-	private MediaPlayer mediaPlayer =  new MediaPlayer();       //媒体播放器对象  
+	private MediaPlayer mediaPlayer =  new MediaPlayer();   //媒体播放器对象  
 	private Handler handler = new Handler();
 	private Runnable runnable = new Runnable() {
 		@Override
@@ -31,6 +31,7 @@ public class MusicService extends Service{
 			}
 		}
 	};
+	public static int curBufferingProgress;  //当前第二进度记录
 	
 	@Override
 	public IBinder onBind(Intent intent) {
@@ -163,8 +164,9 @@ public class MusicService extends Service{
     
     private final class MyBufferUpdateListener implements OnBufferingUpdateListener{
 		@Override
-		public void onBufferingUpdate(MediaPlayer mp, int percent) {
-			Log.i("test","bufferingProgress===>" + percent);  //可以用来设置第二进度 
+		public void onBufferingUpdate(MediaPlayer mp, int bufferingProgress) {
+			Log.i("test","bufferingProgress===>" + bufferingProgress);  //可以用来设置第二进度 
+			curBufferingProgress = bufferingProgress;
 		}
     }
 }

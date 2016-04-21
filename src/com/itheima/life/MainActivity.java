@@ -41,6 +41,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.ll_news:
+			startActivity(NewsCenterActivity.class);
 			break;
 		case R.id.ll_music:
 //			startActivity(MusicActivity.class);

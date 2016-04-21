@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/music_list"
+            android:text="@string/net_music_list"
             android:textColor="@android:color/white"
             android:textSize="@dimen/sp20" />
     </RelativeLayout>
@@ -111,6 +111,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="@dimen/dp45" />
+            android:layout_marginBottom="@dimen/dp50" 
+            android:focusable="true"
+        	android:maxHeight="@dimen/dp5"
+        	android:minHeight="@dimen/dp5"
+        	android:paddingLeft="@dimen/dp15"
+        	android:paddingRight="@dimen/dp15"
+        	android:progressDrawable="@drawable/po_seekbar"
+        	android:thumb="@drawable/seekbar_thumb"/>
     </RelativeLayout>
 </LinearLayout>

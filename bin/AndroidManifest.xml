@@ -96,6 +96,12 @@
             android:configChanges="locale|layoutDirection"
             android:screenOrientation="portrait">
         </activity>
+        <activity 
+            android:name=".NewsCenterActivity"
+            android:configChanges="locale|layoutDirection"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyTheme">
+        </activity>
         
         
         <service android:name="com.itheima.service.MusicService"/>
@@ -199,12 +205,12 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
 	    <activity
-         android:name="com.igexin.sdk.GActivity"
-         android:excludeFromRecents="true"
-         android:exported="true"
-         android:process=":pushservice"
-         android:taskAffinity="com.igexin.sdk.PushActivityTask"
-         android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+	         android:name="com.igexin.sdk.GActivity"
+	         android:excludeFromRecents="true"
+	         android:exported="true"
+	         android:process=":pushservice"
+	         android:taskAffinity="com.igexin.sdk.PushActivityTask"
+	         android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 			
         <receiver
             android:name="com.igexin.getuiext.service.PayloadReceiver"
