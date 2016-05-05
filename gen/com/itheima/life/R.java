@@ -493,22 +493,25 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int pause=0x7f020004;
         public static final int play=0x7f020005;
         public static final int po_seekbar=0x7f020006;
-        public static final int pop_shape=0x7f020007;
+        public static final int point_pressed=0x7f020007;
+        public static final int point_unpressed=0x7f020008;
+        public static final int pop_shape=0x7f020009;
         /**  问题中我的问题 
          */
-        public static final int que_check_bg=0x7f020013;
-        public static final int que_unCheck_bg=0x7f020014;
-        public static final int seekbar_thumb=0x7f020008;
-        public static final int seekbar_thumb_normal=0x7f020009;
-        public static final int seekbar_thumb_pressed=0x7f02000a;
-        public static final int shop=0x7f02000b;
-        public static final int vpi__tab_indicator=0x7f02000c;
-        public static final int vpi__tab_selected_focused_holo=0x7f02000d;
-        public static final int vpi__tab_selected_holo=0x7f02000e;
-        public static final int vpi__tab_selected_pressed_holo=0x7f02000f;
-        public static final int vpi__tab_unselected_focused_holo=0x7f020010;
-        public static final int vpi__tab_unselected_holo=0x7f020011;
-        public static final int vpi__tab_unselected_pressed_holo=0x7f020012;
+        public static final int que_check_bg=0x7f020016;
+        public static final int que_unCheck_bg=0x7f020017;
+        public static final int seekbar_thumb=0x7f02000a;
+        public static final int seekbar_thumb_normal=0x7f02000b;
+        public static final int seekbar_thumb_pressed=0x7f02000c;
+        public static final int shop=0x7f02000d;
+        public static final int vpi__tab_indicator=0x7f02000e;
+        public static final int vpi__tab_selected_focused_holo=0x7f02000f;
+        public static final int vpi__tab_selected_holo=0x7f020010;
+        public static final int vpi__tab_selected_pressed_holo=0x7f020011;
+        public static final int vpi__tab_unselected_focused_holo=0x7f020012;
+        public static final int vpi__tab_unselected_holo=0x7f020013;
+        public static final int vpi__tab_unselected_pressed_holo=0x7f020014;
+        public static final int wall=0x7f020015;
     }
     public static final class id {
         public static final int arrow_left=0x7f0a0017;
@@ -516,20 +519,22 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int bmapView=0x7f0a000e;
         public static final int bottom=0x7f0a0003;
         public static final int datepicker=0x7f0a000f;
+        public static final int dotLayout=0x7f0a0027;
         public static final int et_content=0x7f0a000c;
         public static final int fragment_container=0x7f0a001f;
         public static final int id_indicator=0x7f0a0022;
         public static final int id_pager=0x7f0a0023;
         public static final int id_tip=0x7f0a0024;
+        public static final int img=0x7f0a002c;
         public static final int iv_pic=0x7f0a001c;
         public static final int iv_play=0x7f0a0018;
-        public static final int ll_barView=0x7f0a0028;
+        public static final int ll_barView=0x7f0a002e;
         public static final int ll_map=0x7f0a0007;
         public static final int ll_messages=0x7f0a000a;
         public static final int ll_music=0x7f0a0006;
         public static final int ll_news=0x7f0a0005;
         public static final int ll_notepad=0x7f0a0009;
-        public static final int ll_polview=0x7f0a0027;
+        public static final int ll_polview=0x7f0a002d;
         public static final int ll_weather=0x7f0a0008;
         public static final int msg_list=0x7f0a001a;
         public static final int music_list=0x7f0a0011;
@@ -537,10 +542,12 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int music_seek=0x7f0a0012;
         public static final int music_time=0x7f0a0016;
         public static final int music_title=0x7f0a0015;
+        public static final int myviewPager=0x7f0a0026;
         public static final int none=0x7f0a0000;
         public static final int rl_bottom=0x7f0a0013;
+        public static final int slideView=0x7f0a0025;
         public static final int timepicker=0x7f0a0010;
-        public static final int title=0x7f0a0026;
+        public static final int title=0x7f0a002b;
         public static final int top=0x7f0a0004;
         public static final int triangle=0x7f0a0001;
         public static final int tv_author=0x7f0a001e;
@@ -551,7 +558,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int tv_search=0x7f0a000d;
         public static final int tv_title=0x7f0a001d;
         public static final int underline=0x7f0a0002;
-        public static final int user_info=0x7f0a0025;
+        public static final int user_info=0x7f0a002a;
+        public static final int v_dot1=0x7f0a0028;
+        public static final int v_dot2=0x7f0a0029;
     }
     public static final class integer {
         public static final int default_circle_indicator_orientation=0x7f090000;
@@ -573,9 +582,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int net_music_fragment=0x7f030009;
         public static final int news_center_activity=0x7f03000a;
         public static final int news_center_fragment_item=0x7f03000b;
-        public static final int overlay_pop=0x7f03000c;
-        public static final int weather_activity=0x7f03000d;
-        public static final int welcome_activity=0x7f03000e;
+        public static final int news_center_one_fragment=0x7f03000c;
+        public static final int overlay_pop=0x7f03000d;
+        public static final int scroll_vew_item=0x7f03000e;
+        public static final int weather_activity=0x7f03000f;
+        public static final int welcome_activity=0x7f030010;
     }
     public static final class string {
         public static final int app_name=0x7f060000;
