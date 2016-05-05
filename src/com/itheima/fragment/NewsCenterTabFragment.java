@@ -7,7 +7,6 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import android.annotation.SuppressLint;
-import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.BitmapFactory;
@@ -24,10 +23,14 @@ import android.widget.TextView;
 
 import com.itheima.adapter.ImagePagerAdapter;
 import com.itheima.adapter.NewsCenterTabPageAdapter;
+import com.itheima.adapter.SlideListViewAdapter;
+import com.itheima.adapter.SlideListViewAdapter.MessageItem;
+import com.itheima.adapter.SlideListViewAdapter.onRemoveItemListener;
 import com.itheima.life.R;
 import com.itheima.model.Images;
 import com.itheima.util.ImageCacheManager;
 import com.itheima.view.MyPictureScrollViewPager;
+import com.itheima.view.SlideListView;
 
 /**
  * 新闻中心模块Fragment
@@ -46,6 +49,11 @@ public class NewsCenterTabFragment extends Fragment{
 	private boolean isPlay;
 	private int currentItem;//当前页面
 	private int ImgCount = 6;
+	
+	private SlideListView slideView;
+	private SlideListViewAdapter mAdapter;
+	private List<MessageItem> msgList = new ArrayList<MessageItem>();
+	private int newsItemCount = 15;
 
 	public NewsCenterTabFragment(int newsType){
 		this.newsType = newsType;
@@ -63,15 +71,17 @@ public class NewsCenterTabFragment extends Fragment{
 		this.currentItem = 0; //初始化变量
 		
 		if(newsType == 0){ //第一个Fragment
-			View view = inflater.inflate(R.layout.news_center_one_fragment, null);
-			mviewPager = (MyPictureScrollViewPager) view.findViewById(R.id.myviewPager);
-			dotLayout = (LinearLayout)view.findViewById(R.id.dotLayout);
+			View listView = inflater.inflate(R.layout.news_center_one_fragment, null);
+			View headView = inflater.inflate(R.layout.news_viewpager_header, null);
+			mviewPager = (MyPictureScrollViewPager) headView.findViewById(R.id.myviewPager);
+			dotLayout = (LinearLayout)headView.findViewById(R.id.dotLayout);
 			dotLayout.removeAllViews();
 			
 			initView();
+			initListView(listView,headView);
 			startPlay();
 			
-			return view;
+			return listView;
 		}
 		
 		View view = inflater.inflate(R.layout.news_center_fragment_item, null);
@@ -90,14 +100,38 @@ public class NewsCenterTabFragment extends Fragment{
 		super.onDestroyView();
 	}
 	
+	/**
+	 * 初始化ListView条目
+	 */
+	public void initListView(View rootView,View headView){
+		slideView = (SlideListView)rootView.findViewById(R.id.slideListView);
+		for(int i=0; i<newsItemCount; i++){
+			SlideListViewAdapter.MessageItem item = new SlideListViewAdapter.MessageItem("新闻"+(i+1));
+			msgList.add(item); 
+		}
+		mAdapter = new SlideListViewAdapter((Activity)context,msgList);
+		slideView.setAdapter(mAdapter);
+		
+		mAdapter.setOnRemoveItemListener(new onRemoveItemListener() {
+			@Override
+			public void removeItem(int position) {
+				Log.i("test","移除条目的所处List集合位置索引===>"+position);
+				msgList.remove(position);
+				mAdapter.notifyDataSetChanged();
+			}
+		});
+		
+		slideView.addHeaderView(headView); //为ListView添加头视图
+	}
+	
 	public void initView(){
 		dotViewList = new ArrayList<ImageView>();
 		imageList = new ArrayList<ImageView>();
 		
 		for (int i = 0; i < ImgCount; i++) {
 			ImageView dotView = new ImageView(context);
-			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(new LayoutParams(
-					LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT));
+			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+					LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 			
 			params.leftMargin = context.getResources().getDimensionPixelSize(R.dimen.dp5);//设置小圆点的外边距
 			params.rightMargin = context.getResources().getDimensionPixelSize(R.dimen.dp5);
