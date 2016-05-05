@@ -105,6 +105,10 @@ public class NewsCenterTabFragment extends Fragment{
 	 */
 	public void initListView(View rootView,View headView){
 		slideView = (SlideListView)rootView.findViewById(R.id.slideListView);
+		
+		if(msgList.size()>0){
+			msgList.clear();
+		}
 		for(int i=0; i<newsItemCount; i++){
 			SlideListViewAdapter.MessageItem item = new SlideListViewAdapter.MessageItem("新闻"+(i+1));
 			msgList.add(item); 
